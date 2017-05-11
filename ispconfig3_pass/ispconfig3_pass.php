@@ -200,6 +200,28 @@ class ispconfig3_pass extends rcube_plugin
         $table->add('', $input_confpasswd->show());
 
         $out .= $table->show();
+
+        $out .= "<p>".$this->gettext('password_rules')."</p>\n";
+        $checkUpper = $this->rcmail_inst->config->get('password_check_upper');
+        $checkLower = $this->rcmail_inst->config->get('password_check_lower');
+        $checkSymbol = $this->rcmail_inst->config->get('password_check_symbol');
+        $checkNumber = $this->rcmail_inst->config->get('password_check_number');
+        $out .= "<ul>\n";
+        $out .= "<li>".str_replace("%d", $pwl, $this->gettext('password_rule_length'))."</li>\n";
+        if ($checkUpper) {
+          $out .= "<li>".$this->gettext('password_rule_upper')."</li>\n";
+        }
+        if ($checkLower) {
+          $out .= "<li>".$this->gettext('password_rule_lower')."</li>\n";
+        }
+        if ($checkSymbol) {
+          $out .= "<li>".$this->gettext('password_rule_symbol')."</li>\n";
+        }
+        if ($checkNumber) {
+          $out .= "<li>".$this->gettext('password_rule_number')."</li>\n";
+        }
+        $out .= "</ul>\n";
+
         $out .= "</fieldset>\n";
 
         return $out;
