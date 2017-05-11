@@ -129,6 +129,8 @@ class ispconfig3_spam extends rcube_plugin
             $policy_sel = $this->soap->mail_policy_get($session_id, array('id' => $spam_user[0]['policy_id']));
             $this->soap->logout($session_id);
 
+            $policy_name[] = $this->gettext('policy_empty_name');
+            $policy_id[] = 0;
             for ($i = 0; $i < count($policy); $i++)
             {
                 $policy_name[] = $policy[$i]['policy_name'];

@@ -7,4 +7,7 @@ $labels['policy_tag'] = 'Tag Level';
 $labels['policy_tag2'] = 'Tag2 Level';
 $labels['policy_kill'] = 'Kill Level';
 $labels['spamnopolicies'] = 'No Policies available';
+
+$messages = [];
+$messages['policy_empty_name'] = '- not active -';
 ?>
